@@ -66,42 +66,41 @@ bluetoothModule.stop({})
 const bluetoothModule = uni.requireNativePlugin("BluetoothPlugin-BluetoothModule")
 
 export default {
-	data() {
-		return {
-			bluetooths: []
-		}
-	},
-	methods: {
-		init() {
-			bluetoothModule.init({}, ret => {
-				uni.showToast({ title: ret.message, icon: 'none' })
-			})
-		},
-		scan() {
-			uni.showLoading({ title: "搜索中" })
+  data() {
+    return {
+      bluetooths: []
+    }
+  },
+  methods: {
+    init() {
+      bluetoothModule.init({}, ret => {
+        uni.showToast({ title: ret.message, icon: 'none' })
+      })
+    },
+    scan() {
+      uni.showLoading({ title: "搜索中" })
+
+      bluetoothModule.scan({}, ret => {
+        let { name, deviceId } = ret		
+        this.bluetooths.push({ name, deviceId }) 
+      })
 			
-			bluetoothModule.scan({}, ret => {
-				let { name, deviceId } = ret
-				
-				this.bluetooths.push({ name, deviceId }) 
-			})
+      setTimeout(() => {
+        uni.hideLoading()
 			
-			setTimeout(() => {
-				uni.hideLoading()
+        uni.showToast({ title: '搜索完成', icon: 'none' })
 				
-				uni.showToast({ title: '搜索完成', icon: 'none' })
-				
-				bluetoothModule.stop({})
-			}, 3000)			
-		}
-	}
+        bluetoothModule.stop({})
+      }, 3000)			
+    }
+  }
 }
 </script>
 
 <style>
-	button {
-		margin-top: 10px;
-	}
+button {
+  margin-top: 10px;
+}
 </style>
 
 ```
