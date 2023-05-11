@@ -11,6 +11,9 @@ const bluetoothModule = uni.requireNativePlugin("BluetoothPlugin-BluetoothModule
 bluetoothModule.init({}, ret => {
   uni.showToast({ title: ret.message, icon: 'none' })
 })
+
+只需要初始化一次
+
 ```
 
 3. scan
