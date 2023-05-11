@@ -51,7 +51,6 @@ UniModuleKeepAliveCallback initCallback, scanCallback;
             initCallback(@{@"message": @"不支持蓝牙"}, YES);
             break;
         case CBManagerStateUnauthorized:
-            NSLog(@"CBManagerStateUnauthorized");
             initCallback(@{@"message": @"没有蓝牙权限"}, YES);
             break;
         case CBManagerStatePoweredOff:
