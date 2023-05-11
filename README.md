@@ -3,14 +3,14 @@
 ### Usage
 
 1. import
-```js
+```javascript
 const bluetoothModule = uni.requireNativePlugin("BluetoothPlugin-BluetoothModule")
 ```
 2. init
 
 只需要初始化一次。
 
-```js
+```javascript
 bluetoothModule.init({}, ret => {
   uni.showToast({ title: ret.message, icon: 'none' })
 })
@@ -28,13 +28,80 @@ bluetoothModule.init({}, ret => {
 | 蓝牙开启 | 
 
 3. scan
-```js
+```javascript
 bluetoothModule.scan({}, ret => {
   let { name, deviceId } = ret    // your bluetooth data
 })
 ```
 
 4. stopScan
-```js
+```javascript
 bluetoothModule.stop({})
+```
+### Demo
+
+```javascript
+<template>
+	<div style="padding: 10px">
+		<button type="default" @click="init">初始化</button>
+		<button type="primary" @click="scan">扫描</button>
+		
+		<div style="margin-top: 10px">蓝牙列表: </div>
+		
+		<div v-for="bluetooth in bluetooths">
+			<button style="text-align: left;" type="default" @click="connect(blueTooth['name'])">
+				<div>
+					name: {{ bluetooth['name'] }}
+				</div>
+				<div>
+					deviceId: {{ bluetooth['deviceId'] }}
+				</div>
+			</button>
+ 		</div>
+	</div>
+</template>
+
+<script>
+// 首先需要通过 uni.requireNativePlugin("ModuleName") 获取 module
+const bluetoothModule = uni.requireNativePlugin("BluetoothPlugin-BluetoothModule")
+
+export default {
+	data() {
+		return {
+			bluetooths: []
+		}
+	},
+	methods: {
+		init() {
+			bluetoothModule.init({}, ret => {
+				uni.showToast({ title: ret.message, icon: 'none' })
+			})
+		},
+		scan() {
+			uni.showLoading({ title: "搜索中" })
+			
+			bluetoothModule.scan({}, ret => {
+				let { name, deviceId } = ret
+				
+				this.bluetooths.push({ name, deviceId }) 
+			})
+			
+			setTimeout(() => {
+				uni.hideLoading()
+				
+				uni.showToast({ title: '搜索完成', icon: 'none' })
+				
+				bluetoothModule.stop({})
+			}, 3000)			
+		}
+	}
+}
+</script>
+
+<style>
+	button {
+		margin-top: 10px;
+	}
+</style>
+
 ```
