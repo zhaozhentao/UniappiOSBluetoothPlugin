@@ -1,28 +1,8 @@
 # UniappiOSBluetoothPlugin
 
-### 
+### HBuilderX 使用本地插件
 
-```json
-{
-  "name": "BluetoothPlugin",
-  "id": "BluetoothPlugin",
-  "version": "1.0.0",
-  "description": "蓝牙搜索模块",
-  "_dp_type": "nativeplugin",
-  "_dp_nativeplugin": {
-    "ios": {
-      "plugins": [{
-        "type": "module",
-        "name": "BluetoothPlugin-BluetoothModule",
-        "class": "BluetoothModule"
-      }],
-      "frameworks": ["MapKit.framework"],
-      "integrateType": "framework",
-      "deploymentTarget": "12.0"
-    }
-  }
-}
-```
+[download](https://github.com/zhaozhentao/UniappiOSBluetoothPlugin/releases/tag/1.0)
 
 ### Usage
 
