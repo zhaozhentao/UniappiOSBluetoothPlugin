@@ -55,7 +55,7 @@ bluetoothModule.stop({})
     <div style="margin-top: 10px">蓝牙列表: </div>
 
     <div v-for="bluetooth in bluetooths">
-      <button style="text-align: left;" type="default" @click="connect(blueTooth['name'])">
+      <button style="text-align: left;" type="default">
         <div>
           name: {{ bluetooth['name'] }}
         </div>
