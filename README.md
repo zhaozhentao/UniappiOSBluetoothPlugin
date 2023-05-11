@@ -2,9 +2,9 @@
 
 ### HBuilderX 使用本地插件
 
-导入插件参考 [官网](https://nativesupport.dcloud.net.cn/NativePlugin/use/use_local_plugin.html)
+导入插件参考: [官网](https://nativesupport.dcloud.net.cn/NativePlugin/use/use_local_plugin.html)
 
-[download](https://github.com/zhaozhentao/UniappiOSBluetoothPlugin/releases/tag/1.0)
+插件下载: [download](https://github.com/zhaozhentao/UniappiOSBluetoothPlugin/releases/tag/1.0)
 
 ### Usage
 
