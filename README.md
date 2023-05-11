@@ -42,23 +42,23 @@ bluetoothModule.stop({})
 
 ```javascript
 <template>
-	<div style="padding: 10px">
-		<button type="default" @click="init">初始化</button>
-		<button type="primary" @click="scan">扫描</button>
-		
-		<div style="margin-top: 10px">蓝牙列表: </div>
-		
-		<div v-for="bluetooth in bluetooths">
-			<button style="text-align: left;" type="default" @click="connect(blueTooth['name'])">
-				<div>
-					name: {{ bluetooth['name'] }}
-				</div>
-				<div>
-					deviceId: {{ bluetooth['deviceId'] }}
-				</div>
-			</button>
- 		</div>
-	</div>
+  <div style="padding: 10px">
+    <button type="default" @click="init">初始化</button>
+    <button type="primary" @click="scan">扫描</button>
+	
+    <div style="margin-top: 10px">蓝牙列表: </div>
+
+    <div v-for="bluetooth in bluetooths">
+      <button style="text-align: left;" type="default" @click="connect(blueTooth['name'])">
+        <div>
+          name: {{ bluetooth['name'] }}
+        </div>
+        <div>
+          deviceId: {{ bluetooth['deviceId'] }}
+        </div>
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>
