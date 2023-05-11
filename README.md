@@ -4,7 +4,7 @@
 
 1. import
 ```js
-const bluetoothModule = uni.requireNativePlugin("BlueToothPlugin-BlueToothModule")
+const bluetoothModule = uni.requireNativePlugin("BluetoothPlugin-BluetoothModule")
 ```
 2. init
 ```js
